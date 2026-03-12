@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAAN | Global Accounting & Assurance Network</title>
+    <style>
+        :root {
+            --primary-color: #002B5B; /* 深い紺：信頼と権威 */
+            --secondary-color: #D4AF37; /* ゴールド：上質さと成功 */
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: var(--text-color); line-height: 1.6; }
+        header { background: #fff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-color); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 28px; font-weight: bold; color: var(--primary-color); letter-spacing: 2px; }
+        .logo span { color: var(--secondary-color); }
+        nav a { margin-left: 25px; text-decoration: none; color: var(--primary-color); font-weight: 500; font-size: 14px; }
+        
+        .hero { background: linear-gradient(rgba(0,43,91,0.8), rgba(0,43,91,0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070') center/cover; color: #fff; padding: 100px 50px; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: 1px; }
+        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto 30px; }
+        .btn { background: var(--secondary-color); color: #fff; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #b8962e; }
+
+        .section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { color: var(--primary-color); font-size: 32px; border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 10px; }
+
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .service-card { background: var(--bg-light); padding: 30px; border-radius: 8px; border-top: 5px solid var(--primary-color); text-align: center; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .service-card h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+        .network { background: var(--primary-color); color: #fff; text-align: center; padding: 60px 50px; }
+        .network-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
+        .node { border: 1px solid rgba(255,255,255,0.3); padding: 15px; border-radius: 4px; }
+
+        footer { background: #111; color: #999; padding: 40px 50px; text-align: center; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">GA<span>AN</span></div>
+    <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#network">NETWORK</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>世界を、ガーン（GAAN）と繋ぐ。</h1>
+    <p>会計・監査・税務・秘書役の真の保証（Assurance）を、ワンストップで。上場準備から海外子会社管理まで、貴社のグローバルガバナンスを盤石にします。</p>
+    <a href="#contact" class="btn">お問い合わせ・資料請求</a>
+</section>
+
+<section id="services" class="section">
+    <div class="section-title">
+        <h2>GAAN Global Services</h2>
+        <p>全ての業務を、世界各国の拠点でワンストップ対応</p>
+    </div>
+    <div class="services">
+        <div class="service-card">
+            <h3>Audit & Assurance</h3>
+            <p>法定監査、内部監査、J-SOX対応。上場準備（IPO）に不可欠な信頼性の高いアシュアランスを提供します。</p>
+        </div>
+        <div class="service-card">
+            <h3>Accounting</h3>
+            <p>連結決算支援、IFRS/J-GAAP対応。監査法人が求めるクオリティでの数値管理を世界各地で実現。</p>
+        </div>
+        <div class="service-card">
+            <h3>International Tax</h3>
+            <p>国際タックスプランニング、移転価格文書化、現地の申告代行まで。税務リスクを最小化します。</p>
+        </div>
+        <div class="service-card">
+            <h3>Corp. Secretarial</h3>
+            <p>法人設立、ビザ取得、現地のコンプライアンス維持。会社秘書役として法人の根幹を支えます。</p>
+        </div>
+    </div>
+</section>
+
+<section id="network" class="network">
+    <h2>Global Strategic Network</h2>
+    <p>提携先ではなく、戦略的パートナーとしての「拠点」</p>
+    <div class="network-grid">
+        <div class="node">JAPAN (Tokyo / Nagoya / Osaka)</div>
+        <div class="node">THAILAND (Bangkok)</div>
+        <div class="node">VIETNAM (HCMC / Hanoi)</div>
+        <div class="node">CHINA (Shanghai / Hong Kong)</div>
+        <div class="node">SINGAPORE</div>
+        <div class="node">PHILIPPINES / INDONESIA</div>
+    </div>
+    <p style="margin-top: 40px; font-style: italic;">※各国の会計士・税理士・秘書役がGAANの統一品質で対応します。</p>
+</section>
+
+<section id="about" class="section" style="text-align: center;">
+    <div class="section-title">
+        <h2>なぜ「GAAN」なのか</h2>
+    </div>
+    <p style="max-width: 800px; margin: 0 auto; text-align: left;">
+        大手ファームでは、窓口が分断され、コストが肥大化しがちです。GAANは、<b>「一つの窓口（Single Point of Contact）」</b>で全ての業務を統括。<br><br>
+        菊川様やペンギン・トレーディング様のような急成長企業が、上場準備フェーズで必要とする「高度な会計知見」と「現場の実務遂行力」を、適正なコストで提供し続けます。
+    </p>
+</section>
+
+<footer>
+    &copy; 2026 Global Accounting & Assurance Network (GAAN). All Rights Reserved.
+</footer>
+
+</body>
+</html>
