@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +13,7 @@
 :root{
 --primary:#002B5B;
 --gold:#D4AF37;
---light:#f4f7f9;
+--light:#f5f7fa;
 --text:#1a1a1a;
 }
 
@@ -23,43 +25,48 @@ line-height:1.8;
 }
 
 header{
-background:#fff;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 50px;
+padding:15px 40px;
+background:#fff;
 border-bottom:4px solid var(--primary);
 position:sticky;
 top:0;
-z-index:1000;
+z-index:999;
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 font-weight:800;
+letter-spacing:3px;
 color:var(--primary);
 text-decoration:none;
-letter-spacing:3px;
 }
 
 .logo span{color:var(--gold);}
 
+nav{
+display:flex;
+gap:25px;
+}
+
 nav a{
-margin-left:30px;
 text-decoration:none;
-color:var(--primary);
 font-weight:bold;
+color:var(--primary);
 font-size:14px;
 }
 
-nav a:hover{color:var(--gold);}
-
 .hero{
+
 background:
 linear-gradient(rgba(0,43,91,.85),rgba(0,43,91,.85)),
 url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000");
+
 background-size:cover;
-color:#fff;
+background-position:center;
+color:white;
 text-align:center;
 padding:140px 20px;
 }
@@ -77,19 +84,22 @@ margin-bottom:40px;
 }
 
 .btn{
+
 background:var(--gold);
-color:#fff;
-padding:16px 38px;
+padding:16px 40px;
+color:white;
 text-decoration:none;
 font-weight:bold;
 border-radius:4px;
-display:inline-block;
+
 }
 
 .section{
+
 max-width:1200px;
 margin:auto;
 padding:90px 20px;
+
 }
 
 .section-title{
@@ -100,301 +110,376 @@ margin-bottom:60px;
 .section-title h2{
 font-size:34px;
 color:var(--primary);
-position:relative;
-padding-bottom:15px;
 }
 
-.section-title h2:after{
-content:"";
-width:60px;
-height:3px;
-background:var(--gold);
-position:absolute;
-left:50%;
-bottom:0;
-transform:translateX(-50%);
-}
+.ipo-box{
 
-.ipo-focus{
 background:var(--light);
-border-left:6px solid var(--gold);
 padding:40px;
-margin-top:40px;
+border-left:6px solid var(--gold);
+
 }
 
 .ipo-grid{
+
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:30px;
 margin-top:30px;
+
 }
 
-.ipo-item h4{
-color:var(--primary);
-margin-bottom:10px;
+.card{
+
+background:white;
+padding:25px;
+border-radius:8px;
+border:1px solid #ddd;
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+
 }
 
 .network-grid{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
+
 }
 
-.node-card{
-border:1px solid #ddd;
-padding:25px;
-border-radius:8px;
-transition:.3s;
-background:#fff;
-}
-
-.node-card:hover{
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transform:translateY(-5px);
-}
-
-.node-tag{
+.tag{
 font-size:12px;
 color:var(--gold);
 font-weight:bold;
-text-transform:uppercase;
 }
 
-.node-card h3{
-color:var(--primary);
-margin:10px 0;
+.map{
+
+margin-top:50px;
+text-align:center;
+
 }
 
-.message-box{
-max-width:900px;
-margin:auto;
+.map img{
+
+width:100%;
+max-width:800px;
+
 }
 
 blockquote{
+
 font-size:24px;
 color:var(--primary);
 font-style:italic;
-margin-bottom:20px;
+
 }
 
 #contact{
+
 background:var(--primary);
-color:#fff;
+color:white;
 text-align:center;
+
 }
 
 footer{
+
 background:#0a192f;
 color:#8892b0;
 text-align:center;
 padding:60px 20px;
+
+}
+
+/* animation */
+
+.fade{
+
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+
+}
+
+.fade.show{
+
+opacity:1;
+transform:translateY(0);
+
 }
 
 /* mobile */
 
+.menu-toggle{
+
+display:none;
+font-size:26px;
+cursor:pointer;
+
+}
+
 @media(max-width:768px){
 
-header{
-flex-direction:column;
-gap:10px;
-padding:15px;
-}
-
 nav{
+
+display:none;
+flex-direction:column;
+background:white;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+padding:20px;
+
+}
+
+nav.active{
+
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+
 }
 
-nav a{
-margin:6px 10px;
-font-size:13px;
-}
+.menu-toggle{
 
-.hero{
-padding:90px 20px;
+display:block;
+
 }
 
 .hero h1{
+
 font-size:30px;
+
 }
 
 .hero p{
+
 font-size:16px;
+
 }
 
 .section{
+
 padding:60px 20px;
+
 }
 
 .ipo-grid{
+
 grid-template-columns:1fr;
+
 }
 
 blockquote{
+
 font-size:20px;
+
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <a class="logo">GA<span>AN</span></a>
 
-<nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+
 <a href="#ipo">IPO支援</a>
-<a href="#network">グローバル拠点</a>
+<a href="#network">ネットワーク</a>
 <a href="#message">代表メッセージ</a>
 <a href="#contact">お問い合わせ</a>
+
 </nav>
+
 </header>
 
-<section class="hero">
+<section class="hero fade">
 
 <h1>Taxを超え、Assuranceの領域へ。</h1>
 
 <p>
-世界各地の会計士・税務士・会社秘書役が
-GAANの統一品質で貴社のガバナンスを保証します。
+
+世界各地の会計士・税務士・会社秘書役が  
+GAANの統一品質で企業のガバナンスを保証します
+
 </p>
 
-<a class="btn" href="#contact">コンサルティングを依頼する</a>
+<a class="btn" href="#contact">無料相談</a>
 
 </section>
 
-<section id="ipo" class="section">
+<section id="ipo" class="section fade">
 
 <div class="section-title">
 <h2>上場準備（IPO）支援</h2>
 </div>
 
-<div class="ipo-focus">
-
-<p>
-監査法人が求める海外子会社の透明性を
-実務レベルで担保します。
-</p>
+<div class="ipo-box">
 
 <div class="ipo-grid">
 
-<div class="ipo-item">
-<h4>ショートレビュー対応</h4>
-<p>監査前に会計課題を整理し審査をスムーズにします。</p>
+<div class="card">
+<h3>ショートレビュー</h3>
+<p>監査前に課題を整理し審査をスムーズにします</p>
 </div>
 
-<div class="ipo-item">
-<h4>海外子会社J-SOX</h4>
-<p>海外拠点の内部統制構築を支援します。</p>
+<div class="card">
+<h3>海外子会社J-SOX</h3>
+<p>海外拠点の内部統制構築を支援</p>
 </div>
 
-<div class="ipo-item">
-<h4>連結パッケージ改善</h4>
-<p>海外拠点の決算遅延を解消します。</p>
+<div class="card">
+<h3>連結パッケージ</h3>
+<p>海外決算のスピード改善</p>
 </div>
 
-<div class="ipo-item">
-<h4>国際税務・移転価格</h4>
-<p>BEPS対応と税務リスク管理。</p>
+<div class="card">
+<h3>移転価格</h3>
+<p>国際税務コンプライアンス対応</p>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
-<section id="network" class="section">
+<section id="network" class="section fade">
 
 <div class="section-title">
-<h2>Global Network</h2>
+
+<h2>Global Strategic Network</h2>
+
 </div>
 
 <div class="network-grid">
 
-<div class="node-card">
-<span class="node-tag">Japan Hub</span>
+<div class="card">
+
+<span class="tag">Japan</span>
+
 <h3>日本</h3>
+
 <ul>
-<li>ネットワークPMO</li>
+
 <li>IPO支援</li>
+<li>連結税務</li>
+
 </ul>
+
 </div>
 
-<div class="node-card">
-<span class="node-tag">Southeast Asia</span>
+<div class="card">
+
+<span class="tag">Thailand</span>
+
 <h3>タイ</h3>
+
 <ul>
+
 <li>BOI支援</li>
 <li>監査</li>
+
 </ul>
+
 </div>
 
-<div class="node-card">
-<span class="node-tag">Southeast Asia</span>
+<div class="card">
+
+<span class="tag">Vietnam</span>
+
 <h3>ベトナム</h3>
+
 <ul>
+
 <li>法人設立</li>
 <li>監査</li>
+
 </ul>
+
 </div>
 
-<div class="node-card">
-<span class="node-tag">East Asia</span>
+<div class="card">
+
+<span class="tag">China</span>
+
 <h3>中国・香港</h3>
+
 <ul>
+
 <li>連結決算</li>
-<li>移転価格</li>
+<li>税務</li>
+
 </ul>
+
 </div>
 
-<div class="node-card">
-<span class="node-tag">Regional Hub</span>
-<h3>シンガポール</h3>
-<ul>
-<li>地域統括</li>
-<li>税務戦略</li>
-</ul>
 </div>
+
+<div class="map">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
 
 </div>
 
 </section>
 
-<section id="message" class="section">
-
-<div class="message-box">
+<section id="message" class="section fade">
 
 <div class="section-title">
+
 <h2>代表メッセージ</h2>
+
 </div>
 
 <blockquote>
+
 「経営者の隣に、世界を。」
+
 </blockquote>
 
 <p>
-GAANは単なる会計事務所ネットワークではありません。
-貴社の国際部として海外拠点を支援します。
-</p>
 
-</div>
+GAANは単なる会計ネットワークではありません。  
+貴社の国際部として海外拠点を支援します。
+
+</p>
 
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section fade">
 
 <h2>無料相談</h2>
 
 <p>
-海外子会社管理・IPO準備の課題を
+
+海外子会社管理・IPO準備について  
 お気軽にご相談ください。
+
 </p>
 
 <br>
 
-<a class="btn" href="mailto:info@yourdomain.com">お問い合わせ</a>
+<a class="btn" href="mailto:info@yourdomain.com">
+
+お問い合わせ
+
+</a>
 
 </section>
 
@@ -402,11 +487,47 @@ GAANは単なる会計事務所ネットワークではありません。
 
 <h3>GAAN</h3>
 
-<p>Global Accounting & Assurance Network</p>
+<p>
 
-<p>© 2026 GAAN</p>
+Global Accounting & Assurance Network
+
+</p>
+
+<p>
+
+© 2026 GAAN
+
+</p>
 
 </footer>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("nav").classList.toggle("active");
+
+}
+
+const fades=document.querySelectorAll(".fade");
+
+window.addEventListener("scroll",()=>{
+
+fades.forEach(el=>{
+
+const top=el.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+el.classList.add("show");
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
