@@ -283,28 +283,57 @@ width:100%;
 <section id="message" class="section">
     <div class="message-container">
         <div class="message-photo">
-            <img src="aikawa.jpg" alt="相川 聡志">
+            <img src="aikawa.jpg" alt="相川 聡志" style="width: 240px; height: auto; border: 3px solid var(--secondary-color); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
         </div>
+        
         <div class="message-text">
-            <div class="section-title">
-                <h2>代表メッセージ</h2>
+            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                <h2 style="text-align: left; padding-bottom: 10px;">代表メッセージ</h2>
             </div>
-            <p class="position">Founder & Managing Partner</p>
-            <blockquote>経営者の隣に、世界を。</blockquote>
-            <p>
+            <p class="position" style="font-weight: bold; color: var(--primary-color);">Founder & Managing Partner / 公認会計士・税理士</p>
+            <blockquote style="font-size: 24px; font-weight: bold; color: var(--primary-color); margin: 20px 0; border-left: 4px solid var(--secondary-color); padding-left: 20px;">
+                経営者の隣に、世界を。
+            </blockquote>
+            <p style="text-align: justify;">
                 日本企業が海外展開を進める中で、多くの経営者が直面するのが「海外子会社の管理」という見えないリスクです。<br><br>
                 会計基準、税務制度、ガバナンス、コンプライアンス。それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。<br><br>
-                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。<br><br>
-                多くの企業がこの段階で、大手ファームへの依頼を検討します。ただし、そこには一つの課題があります。<br><br>
-                大手ファームでは、担当者が頻繁に変わり、経営者の意思決定に寄り添う「伴走型の支援」が難しい場合があるのです。<br><br>
-                GAAN（Global Accounting & Assurance Network）は、その課題を解決するために生まれました。<br><br>
-                私たちは単なる提携ネットワークではありません。各国の会計士・税務専門家・会社秘書役が共通の品質基準のもとで実務を遂行し、海外子会社の管理、IPO準備、国際税務、そして企業ガバナンスの確立までをワンストップで支援します。<br><br>
-                GAANの使命は、企業の海外展開を「リスク」ではなく「成長機会」に変えることです。<br><br>
+                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。多くの企業がこの段階で、大手ファームへの依頼を検討しますが、そこには「担当者が頻繁に変わり、経営者に寄り添う伴走型の支援が難しい」という課題があります。<br><br>
+                GAAN（Global Accounting & Assurance Network）は、その課題を解決するために生まれました。私たちは単なる提携ネットワークではありません。各国の専門家が共通の品質基準のもとで実務を遂行し、海外子会社の管理からIPO準備までをワンストップで支援します。<br><br>
                 経営者の皆様が安心して世界に挑戦できるよう、私たちは常にその隣で伴走し続けます。
             </p>
         </div>
     </div>
 </section>
+
+<style>
+/* 追加・修正が必要なCSS */
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px; /* 写真とテキストの間隔 */
+    background: #fff;
+    padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+    .message-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+    .message-text blockquote {
+        text-align: left;
+    }
+    .section-title h2 {
+        text-align: center !important;
+    }
+    .section-title h2::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+</style>
 
 <section id="contact" class="section" style="text-align: center; background: var(--primary-color); color: #fff;">
     <h2 style="color: #fff;">グローバルガバナンスの診断・ご相談</h2>
