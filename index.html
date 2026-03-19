@@ -299,64 +299,105 @@ transform:translate(-50%,-50%);
 
 </div>
 
-</section>
+<section id="message" class="section">
+    <div class="message-container">
+        
+        <div class="message-photos">
+            <div class="photo-item">
+                <img src="aikawa.jpg" alt="相川 聡志">
+                <p class="name">相川 聡志</p>
+            </div>
+            <div class="photo-item">
+                <img src="ceo2.jpg" alt="パートナー名">
+                <p class="name">（お名前）</p>
+            </div>
+        </div>
 
-<div class="message-box">
+        <div class="message-text">
+            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                <h2 style="text-align: left; padding-bottom: 10px; margin-left: 0;">代表メッセージ</h2>
+            </div>
 
-<div class="message-photo">
-<img src="ceo.jpg">
-</div>
+            <p class="position">Founder & Managing Partners</p>
+            
+            <blockquote style="font-size: 24px; font-weight: bold; color: var(--primary-color); margin: 20px 0; border-left: 4px solid var(--secondary-color); padding-left: 20px; font-style: normal;">
+                「経営者の隣に、世界を。」
+            </blockquote>
 
-<div class="message-text">
-
-<div class="section-title">
-<h2>代表メッセージ</h2>
-</div>
-
-<p class="position">
-Founder & Managing Partner
-</p>
-「経営者の隣に、世界を。」
-</blockquote>
-
-<p>
-
-日本企業が海外展開を進める中で、多くの経営者が直面するのが  
-「海外子会社の管理」という見えないリスクです。  
-
-会計基準、税務制度、ガバナンス、コンプライアンス。  
-それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。
-
-しかし、IPO（上場）準備や企業成長の過程では、  
-海外拠点の透明性と統制が厳しく問われます。  
-
-多くの企業がこの段階で、大手ファームへの依頼を検討します。  
-ただし、そこには一つの課題があります。  
-
-大手ファームでは、担当者が頻繁に変わり、  
-経営者の意思決定に寄り添う「伴走型の支援」が難しい場合があるのです。
-
-GAAN（Global Accounting & Assurance Network）は、  
-その課題を解決するために生まれました。
-
-私たちは単なる提携ネットワークではありません。  
-各国の会計士・税務専門家・会社秘書役が  
-共通の品質基準のもとで実務を遂行し、  
-
-海外子会社の管理、IPO準備、国際税務、  
-そして企業ガバナンスの確立までを  
-ワンストップで支援します。
-
-GAANの使命は、  
-企業の海外展開を「リスク」ではなく「成長機会」に変えることです。
-
-経営者の皆様が安心して世界に挑戦できるよう、  
-私たちは常にその隣で伴走し続けます。
-
-</p>
+            <p style="text-align: justify;">
+                日本企業が海外展開を進める中で、多くの経営者が直面するのが「海外子会社の管理」という見えないリスクです。<br><br>
+                会計基準、税務制度、ガバナンス、コンプライアンス。それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。<br><br>
+                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。多くの企業がこの段階で、大手ファームへの依頼を検討しますが、そこには「担当者が頻繁に変わり、経営者に寄り添う伴走型の支援が難しい」という課題があります。<br><br>
+                GAAN（Global Accounting & Assurance Network）は、その課題を解決するために生まれました。<br><br>
+                私たちは単なる提携ネットワークではありません。各国の専門家が共通の品質基準のもとで実務を遂行し、海外子会社の管理、IPO準備、そして企業ガバナンスの確立までをワンストップで支援します。<br><br>
+                GAANの使命は、企業の海外展開を「リスク」ではなく「成長機会」に変えることです。経営者の皆様が安心して世界に挑戦できるよう、私たちは常にその隣で伴走し続けます。
+            </p>
         </div>
     </div>
 </section>
+
+<style>
+    .message-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 50px;
+        background: #fff;
+    }
+
+    .message-photos {
+        display: flex;
+        gap: 15px;
+        flex-shrink: 0;
+    }
+
+    .photo-item {
+        text-align: center;
+    }
+
+    .photo-item img {
+        width: 180px; /* 写真1枚のサイズを少しコンパクトに */
+        height: auto;
+        border-radius: 8px;
+        border: 2px solid var(--secondary-color);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: block;
+    }
+
+    .photo-item .name {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .message-text {
+        flex: 1;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+        .message-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .message-photos {
+            justify-content: center;
+        }
+        .photo-item img {
+            width: 140px; /* スマホではさらに調整 */
+        }
+        .message-text {
+            text-align: left;
+        }
+        .message-text .section-title h2 {
+            text-align: center !important;
+        }
+        .message-text .section-title h2::after {
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+    }
+</style>
 
 <section id="contact" class="section" style="text-align: center; background: var(--primary-color); color: #fff;">
     <h2 style="color: #fff;">グローバルガバナンスの診断・ご相談</h2>
