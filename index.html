@@ -1,88 +1,131 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAAN | Global Accounting & Assurance Network</title>
-    <style>
-        :root {
-            --primary-color: #002B5B;
-            --secondary-color: #D4AF37;
-            --accent-light: #f4f7f9;
-            --text-dark: #1a1a1a;
-            --text-muted: #666;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAAN | Global Accounting & Assurance Network</title>
+    <style>
+        :root {
+            --primary-color: #002B5B;
+            --secondary-color: #D4AF37;
+            --accent-light: #f4f7f9;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+        }
+        body { font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; margin: 0; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
+        
+        /* Navigation */
+        header { background: #fff; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--primary-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 32px; font-weight: 800; color: var(--primary-color); letter-spacing: 3px; text-decoration: none; }
+        .logo span { color: var(--secondary-color); }
+        nav a { margin-left: 30px; text-decoration: none; color: var(--primary-color); font-weight: bold; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: var(--secondary-color); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,43,91,0.85), rgba(0,43,91,0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000') center/cover; color: #fff; padding: 120px 50px; text-align: center; }
+        .hero h1 { font-size: 52px; margin-bottom: 25px; line-height: 1.2; }
+        .hero p { font-size: 22px; max-width: 900px; margin: 0 auto 40px; font-weight: 300; }
+        .btn { background: var(--secondary-color); color: #fff; padding: 18px 45px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 18px; transition: 0.3s; display: inline-block; }
+        .btn:hover { background: #b8962e; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        /* Sections */
+        .section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 36px; color: var(--primary-color); position: relative; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--secondary-color); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        /* IPO Section */
+        .ipo-focus { background: var(--accent-light); border-left: 8px solid var(--secondary-color); padding: 50px; margin-bottom: 60px; }
+        .ipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        .ipo-item h4 { color: var(--primary-color); font-size: 20px; margin-bottom: 10px; display: flex; align-items: center; }
+        .ipo-item h4::before { content: '✔'; margin-right: 10px; color: var(--secondary-color); }
+
+        /* Network Grid */
+        .network-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .node-card { border: 1px solid #ddd; padding: 25px; border-radius: 8px; transition: 0.3s; background: #fff; }
+        .node-card:hover { border-color: var(--secondary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .node-tag { font-size: 12px; color: var(--secondary-color); font-weight: bold; text-transform: uppercase; }
+        .node-card h3 { margin: 10px 0; color: var(--primary-color); }
+        .node-card ul { padding-left: 20px; font-size: 14px; color: var(--text-muted); }
+
+        /* 代表メッセージ（修正版CSS） */
+        .message-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px; /* 写真ユニットとテキストの間隔 */
+            padding: 60px 0;
+            background: #fff;
         }
-        body { font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; margin: 0; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
-        
-        /* Navigation */
-        header { background: #fff; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--primary-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 32px; font-weight: 800; color: var(--primary-color); letter-spacing: 3px; text-decoration: none; }
-        .logo span { color: var(--secondary-color); }
-        nav a { margin-left: 30px; text-decoration: none; color: var(--primary-color); font-weight: bold; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: var(--secondary-color); }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,43,91,0.85), rgba(0,43,91,0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000') center/cover; color: #fff; padding: 120px 50px; text-align: center; }
-        .hero h1 { font-size: 52px; margin-bottom: 25px; line-height: 1.2; }
-        .hero p { font-size: 22px; max-width: 900px; margin: 0 auto 40px; font-weight: 300; }
-        .btn { background: var(--secondary-color); color: #fff; padding: 18px 45px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 18px; transition: 0.3s; display: inline-block; }
-        .btn:hover { background: #b8962e; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        /* 写真2枚を横に並べる器 */
+        .message-photos {
+            display: flex;
+            gap: 20px; /* 写真同士の間隔 */
+            flex: 0 0 auto; /* 写真の幅を固定 */
+        }
 
-        /* Sections */
-        .section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 36px; color: var(--primary-color); position: relative; padding-bottom: 15px; }
-        .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--secondary-color); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .message-photos img {
+            width: 200px; /* 写真1枚の幅 */
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid var(--secondary-color); /* 枠線を追加 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-        /* IPO Section */
-        .ipo-focus { background: var(--accent-light); border-left: 8px solid var(--secondary-color); padding: 50px; margin-bottom: 60px; }
-        .ipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
-        .ipo-item h4 { color: var(--primary-color); font-size: 20px; margin-bottom: 10px; display: flex; align-items: center; }
-        .ipo-item h4::before { content: '✔'; margin-right: 10px; color: var(--secondary-color); }
+        .message-text {
+            flex: 1; /* 残りの幅を占める */
+        }
 
-        /* Network Grid */
-        .network-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .node-card { border: 1px solid #ddd; padding: 25px; border-radius: 8px; transition: 0.3s; background: #fff; }
-        .node-card:hover { border-color: var(--secondary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .node-tag { font-size: 12px; color: var(--secondary-color); font-weight: bold; text-transform: uppercase; }
-        .node-card h3 { margin: 10px 0; color: var(--primary-color); }
-        .node-card ul { padding-left: 20px; font-size: 14px; color: var(--text-muted); }
+        .message-text blockquote {
+            font-style: italic;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+        }
 
-        /* Message */
-        .message-box { display: flex; align-items: center; gap: 50px; background: #fff; }
-        .message-text { flex: 1; }
-        .message-text blockquote { font-style: italic; font-size: 24px; color: var(--primary-color); border-left: none; padding: 0; margin-bottom: 20px; }
-
-        footer { background: #0a192f; color: #8892b0; padding: 60px 50px; text-align: center; }
-        .footer-logo { font-size: 24px; color: #fff; margin-bottom: 20px; }
-
-        .message-box{
-display:flex;
-gap:40px;
-align-items:center;
-}
-
-.message-photo img{
-width:220px;
-border-radius:10px;
-}
-
-.position{
-color:#777;
-font-size:14px;
+        .position{
+color:var(--text-dark);
+font-size:16px;
+font-weight: bold;
 margin-bottom:10px;
 }
 
-        @media(max-width:768px){
-
-.message-box{
-flex-direction:column;
-text-align:center;
+        /* 地図 */
+        .world-map{
+position:relative;
+max-width:900px;
+margin:60px auto;
 }
 
+.world-map img{
+width:100%;
 }
-        /* ===== スマホ最適化 ===== */
 
+.pin{
+position:absolute;
+background:#D4AF37;
+color:white;
+padding:4px 8px;
+font-size:12px;
+border-radius:4px;
+font-weight:bold;
+transform:translate(-50%,-50%);
+}
+
+/* 拠点の位置 */
+.japan{top:38%; left:79%;}
+.thailand{top:52%; left:71%;}
+.vietnam{top:50%; left:74%;}
+.singapore{top:57%; left:72%;}
+.hongkong{top:45%; left:76%;}
+
+        footer { background: #0a192f; color: #8892b0; padding: 60px 50px; text-align: center; }
+        .footer-logo { font-size: 24px; color: #fff; margin-bottom: 20px; }
+
+        /* ===== スマホ最適化 ===== */
 @media (max-width:768px){
 
 header{
@@ -119,7 +162,6 @@ padding:14px 28px;
 }
 
 /* 2カラム→縦 */
-
 .ipo-grid{
 grid-template-columns:1fr;
 }
@@ -128,247 +170,198 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.firm-grid{
-grid-template-columns:1fr;
+/* 代表メッセージ（スマホでは縦並び） */
+.message-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
 }
 
-/* 代表メッセージ */
+.message-photos {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap; /* スマホで写真がはみ出さないように */
+}
 
-.message-box{
-flex-direction:column;
-text-align:center;
+.message-photos img {
+    width: clamp(140px, 40vw, 200px); /* スマホでは少し小さく */
+}
+
+.message-text {
+    text-align: left;
+}
+
+.message-text blockquote {
+    font-size: 20px;
 }
 
 /* 地図 */
-
 .world-map img{
 width:100%;
 }
 
 }
-        .world-map{
-position:relative;
-max-width:900px;
-margin:60px auto;
-}
-
-.world-map img{
-width:100%;
-}
-
-.pin{
-
-position:absolute;
-background:#D4AF37;
-color:white;
-padding:4px 8px;
-font-size:12px;
-border-radius:4px;
-font-weight:bold;
-transform:translate(-50%,-50%);
-
-}
-
-/* 拠点位置 */
-
-.japan{top:38%; left:79%;}
-.thailand{top:52%; left:71%;}
-.vietnam{top:50%; left:74%;}
-.singapore{top:57%; left:72%;}
-.hongkong{top:45%; left:76%;}
-    </style>
+        
+    </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">GA<span>AN</span></a>
-    <nav>
-        <a href="#ipo">IPO支援</a>
-        <a href="#network">グローバル拠点</a>
-        <a href="#message">代表メッセージ</a>
-        <a href="#contact">お問い合わせ</a>
-    </nav>
+    <a href="#" class="logo">GA<span>AN</span></a>
+    <nav>
+        <a href="#ipo">IPO支援</a>
+        <a href="#network">グローバル拠点</a>
+        <a href="#message">代表メッセージ</a>
+        <a href="#contact">お問い合わせ</a>
+    </nav>
 </header>
 
 <section class="hero">
-    <h1>Taxを超え、Assuranceの領域へ。</h1>
-    <p>世界各地の会計士・税務士・会社秘書役が、GAANの統一品質で貴社のガバナンスを保証します。上場準備（IPO）法人のグローバル管理をワンストップで完結。</p>
-    <a href="#contact" class="btn">コンサルティングを依頼する</a>
+    <h1>Taxを超え、Assuranceの領域へ。</h1>
+    <p>世界各地の会計士・税務士・会社秘書役が、GAANの統一品質で貴社のガバナンスを保証します。上場準備（IPO）法人のグローバル管理をワンストップで完結。</p>
+    <a href="#contact" class="btn">コンサルティングを依頼する</a>
 </section>
 
 <section id="ipo" class="section">
-    <div class="section-title">
-        <h2>上場準備（IPO）支援特設セクション</h2>
-        <p>監査法人が求める「海外子会社の透明性」を実務レベルで担保します</p>
-    </div>
-    <div class="ipo-focus">
-        <p>多くの企業が上場準備フェーズで大手ファームへ移行する理由は「安心感」です。GAANは、その安心感を「より身近に、よりスピーディーに」提供します。</p>
-        <div class="ipo-grid">
-            <div class="ipo-item">
-                <h4>ショートレビュー対応・財務DD</h4>
-                <p>監査法人の立ち入り前に、現地の会計慣行をJ-GAAPに準拠。指摘事項を事前に潰し、円滑な審査を支援します。</p>
-            </div>
-            <div class="ipo-item">
-                <h4>海外子会社J-SOX構築</h4>
-                <p>現地の会社秘書役・会計チームと連携し、物理的な距離を超えた内部統制（職務分掌・承認プロセス）を構築します。</p>
-            </div>
-            <div class="ipo-item">
-                <h4>連結パッケージ早期化</h4>
-                <p>海外拠点の決算遅延はIPOの致命傷です。GAANが直接現地拠点を統括し、日本本社への報告スピードを劇的に改善します。</p>
-            </div>
-            <div class="ipo-item">
-                <h4>移転価格文書化・国際税務</h4>
-                <p>上場審査で厳しく問われる税務コンプライアンス。BEPS対応を含めた、グローバルでの最適税率を実現します。</p>
-            </div>
-        </div>
-    </div>
+    <div class="section-title">
+        <h2>上場準備（IPO）支援特設セクション</h2>
+        <p>監査法人が求める「海外子会社の透明性」を実務レベルで担保します</p>
+    </div>
+    <div class="ipo-focus">
+        <p>多くの企業が上場準備フェーズで大手ファームへ移行する理由は「安心感」です。GAANは、その安心感を「より身近に、よりスピーディーに」提供します。</p>
+        <div class="ipo-grid">
+            <div class="ipo-item">
+                <h4>ショートレビュー対応・財務DD</h4>
+                <p>監査法人の立ち入り前に、現地の会計慣行をJ-GAAPに準拠。指摘事項を事前に潰し、円滑な審査を支援します。</p>
+            </div>
+            <div class="ipo-item">
+                <h4>海外子会社J-SOX構築</h4>
+                <p>現地の会社秘書役・会計チームと連携し、物理的な距離を超えた内部統制（職務分掌・承認プロセス）を構築します。</p>
+            </div>
+            <div class="ipo-item">
+                <h4>連結パッケージ早期化</h4>
+                <p>海外拠点の決算遅延はIPOの致命傷です。GAANが直接現地拠点を統括し、日本本社への報告スピードを劇的に改善します。</p>
+            </div>
+            <div class="ipo-item">
+                <h4>移転価格文書化・国際税務</h4>
+                <p>上場審査で厳しく問われる税務コンプライアンス。BEPS対応を含めた、グローバルでの最適税率を実現します。</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="network" class="section" style="background: #fdfdfd;">
-    <div class="section-title">
-        <h2>Global Strategic Network</h2>
-        <p>「提携先」ではなく、実務を完結させる「GAANメンバーファーム」</p>
-    </div>
-    <div class="network-grid">
-        <div class="node-card">
-            <span class="node-tag">Japan Hub</span>
-            <h3>日本（東京・名古屋・大阪）</h3>
-            <ul>
-                <li>ネットワーク全体のPMO（プロジェクト管理）</li>
-                <li>日本本社側の連結納税・IPOコンサルティング</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Southeast Asia</span>
-            <h3>タイ（バンコク）</h3>
-            <ul>
-                <li>BOI（投資委員会）申請・恩典活用</li>
-                <li>製造業向け会計監査・VAT還付実務</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Southeast Asia</span>
-            <h3>ベトナム（ホーチミン・ハノイ）</h3>
-            <ul>
-                <li>外資規制調査・法人設立支援</li>
-                <li>労働許可証取得・現地法定監査</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">East Asia</span>
-            <h3>中国（上海・香港）</h3>
-            <ul>
-                <li>連結決算パッケージ作成支援</li>
-                <li>外貨送金規制対応・移転価格文書化</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Regional Hub</span>
-            <h3>シンガポール</h3>
-            <ul>
-                <li>アジア統括会社の設立・税務スキーム構築</li>
-                <li>高度なアシュアランス業務</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Global Partners</span>
-            <h3>インドネシア・フィリピン 他</h3>
-            <ul>
-                <li>現地の会社秘書役（Corp.Sec）業務</li>
-                <li>税務調査対応・ライセンス維持管理</li>
-            </ul>
-        </div>
-    </div>
-</section>
-    <section class="section">
-
-<div class="section-title">
-<h2>Global Presence</h2>
-<p>GAANメンバーファームの主要拠点</p>
-</div>
-
-<div class="world-map">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
-
-<div class="pin japan">Tokyo</div>
-<div class="pin thailand">Bangkok</div>
-<div class="pin vietnam">Ho Chi Minh</div>
-<div class="pin singapore">Singapore</div>
-<div class="pin hongkong">Hong Kong</div>
-
-</div>
-
+    <div class="section-title">
+        <h2>Global Strategic Network</h2>
+        <p>「提携先」ではなく、実務を完結させる「GAANメンバーファーム」</p>
+    </div>
+    <div class="network-grid">
+        <div class="node-card">
+            <span class="node-tag">Japan Hub</span>
+            <h3>日本（東京・名古屋・大阪）</h3>
+            <ul>
+                <li>ネットワーク全体のPMO（プロジェクト管理）</li>
+                <li>日本本社側の連結納税・IPOコンサルティング</li>
+            </ul>
+        </div>
+        <div class="node-card">
+            <span class="node-tag">Southeast Asia</span>
+            <h3>タイ（バンコク）</h3>
+            <ul>
+                <li>BOI（投資委員会）申請・恩典活用</li>
+                <li>製造業向け会計監査・VAT還付実務</li>
+            </ul>
+        </div>
+        <div class="node-card">
+            <span class="node-tag">Southeast Asia</span>
+            <h3>ベトナム（ホーチミン・ハノイ）</h3>
+            <ul>
+                <li>外資規制調査・法人設立支援</li>
+                <li>労働許可証取得・現地法定監査</li>
+            </ul>
+        </div>
+        <div class="node-card">
+            <span class="node-tag">East Asia</span>
+            <h3>中国（上海・香港）</h3>
+            <ul>
+                <li>連結決算パッケージ作成支援</li>
+                <li>外貨送金規制対応・移転価格文書化</li>
+            </ul>
+        </div>
+        <div class="node-card">
+            <span class="node-tag">Regional Hub</span>
+            <h3>シンガポール</h3>
+            <ul>
+                <li>アジア統括会社の設立・税務スキーム構築</li>
+                <li>高度なアシュアランス業務</li>
+            </ul>
+        </div>
+        <div class="node-card">
+            <span class="node-tag">Global Partners</span>
+            <h3>インドネシア・フィリピン 他</h3>
+            <ul>
+                <li>現地の会社秘書役（Corp.Sec）業務</li>
+                <li>税務調査対応・ライセンス維持管理</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<div class="message-box">
+<section id="presence" class="section">
+    <div class="section-title">
+        <h2>Global Presence</h2>
+        <p>GAANメンバーファームの主要拠点</p>
+    </div>
+    <div class="world-map">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
+        <div class="pin japan">Tokyo</div>
+        <div class="pin thailand">Bangkok</div>
+        <div class="pin vietnam">Ho Chi Minh</div>
+        <div class="pin singapore">Singapore</div>
+        <div class="pin hongkong">Hong Kong</div>
+    </div>
+</section>
 
-<div class="message-photo">
-<img src="ceo.jpg">
-</div>
+<section id="message" class="section">
+    <div class="message-container">
+        
+        <div class="message-photos">
+            <img src="ceo.jpg" alt="横藤田憲一">
+            <img src="photo2.jpg" alt="代表者2">
+        </div>
 
-<div class="message-text">
+        <div class="message-text">
+            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                <h2 style="text-align: left; padding-bottom: 10px;">代表メッセージ</h2>
+            </div>
 
-<div class="section-title">
-<h2>代表メッセージ</h2>
-</div>
+            <p class="position">Founder & Managing Partners</p>
+            
+            <blockquote>「経営者の隣に、世界を。」</blockquote>
 
-<p class="position">
-Founder & Managing Partner
-</p>
-「経営者の隣に、世界を。」
-</blockquote>
-
-<p>
-
-日本企業が海外展開を進める中で、多くの経営者が直面するのが  
-「海外子会社の管理」という見えないリスクです。  
-
-会計基準、税務制度、ガバナンス、コンプライアンス。  
-それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。
-
-しかし、IPO（上場）準備や企業成長の過程では、  
-海外拠点の透明性と統制が厳しく問われます。  
-
-多くの企業がこの段階で、大手ファームへの依頼を検討します。  
-ただし、そこには一つの課題があります。  
-
-大手ファームでは、担当者が頻繁に変わり、  
-経営者の意思決定に寄り添う「伴走型の支援」が難しい場合があるのです。
-
-GAAN（Global Accounting & Assurance Network）は、  
-その課題を解決するために生まれました。
-
-私たちは単なる提携ネットワークではありません。  
-各国の会計士・税務専門家・会社秘書役が  
-共通の品質基準のもとで実務を遂行し、  
-
-海外子会社の管理、IPO準備、国際税務、  
-そして企業ガバナンスの確立までを  
-ワンストップで支援します。
-
-GAANの使命は、  
-企業の海外展開を「リスク」ではなく「成長機会」に変えることです。
-
-経営者の皆様が安心して世界に挑戦できるよう、  
-私たちは常にその隣で伴走し続けます。
-
-</p>
+            <p>
+                日本企業が海外展開を進める中で、多くの経営者が直面するのが「海外子会社の管理」という見えないリスクです。<br><br>
+                会計基準、税務制度、ガバナンス、コンプライアンス。それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。<br><br>
+                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。多くの企業がこの段階で、大手ファームへの依頼を検討しますが、そこには「担当者が頻繁に変わり、経営者に寄り寄り添う伴走型の支援が難しい」という課題があります。<br><br>
+                GAAN（Global Accounting & Assurance Network）は、その課題を解決するために生まれました。私たちは単なる提携ネットワークではありません。各国の専門家が共通の品質基準のもとで実務を遂行し、海外子会社の管理、IPO準備、そして企業ガバナンスの確立までをワンストップで支援します。<br><br>
+                GAANの使命は、企業の海外展開を「リスク」ではなく「成長機会」に変えることです。経営者の皆様が安心して世界に挑戦できるよう、私たちは常にその隣で伴走し続けます。
+            </p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="section" style="text-align: center; background: var(--primary-color); color: #fff;">
-    <h2 style="color: #fff;">グローバルガバナンスの診断・ご相談</h2>
-    <p>貴社の海外子会社管理、またはIPO準備における課題を無料でヒアリングいたします。</p>
-    <br>
-    <a href="mailto:info@yourdomain.com" class="btn">お問い合わせフォームへ</a>
+    <h2 style="color: #fff;">グローバルガバナンスの診断・ご相談</h2>
+    <p>貴社の海外子会社管理、またはIPO準備における課題を無料でヒアリングいたします。</p>
+    <br>
+    <a href="mailto:info@yourdomain.com" class="btn">お問い合わせフォームへ</a>
 </section>
 
 <footer>
-    <div class="footer-logo">GAAN</div>
-    <p>Global Accounting & Assurance Network</p>
-    <p>&copy; 2026 GAAN. All Rights Reserved. | 監査・会計・税務・会社秘書役の国際ネットワーク</p>
+    <div class="footer-logo">GAAN</div>
+    <p>Global Accounting & Assurance Network</p>
+    <p>&copy; 2026 GAAN. All Rights Reserved. | 監査・会計・税務・会社秘書役の国際ネットワーク</p>
 </footer>
 
 </body>
