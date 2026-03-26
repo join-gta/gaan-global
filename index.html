@@ -12,6 +12,13 @@
             --text-dark: #1a1a1a;
             --text-muted: #666;
         }
+        
+        /* スムーズスクロールの設定 */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* ヘッダーに隠れないように調整 */
+        }
+
         body { font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; margin: 0; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
         
         /* Navigation */
@@ -48,134 +55,48 @@
         .node-card h3 { margin: 10px 0; color: var(--primary-color); }
         .node-card ul { padding-left: 20px; font-size: 14px; color: var(--text-muted); }
 
-        /* Message */
-        .message-box { display: flex; align-items: center; gap: 50px; background: #fff; }
+        /* Stats & Map */
+        .network-stats { display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto 40px; text-align: center; flex-wrap: wrap; gap: 20px; }
+        .stat-num { display: block; font-size: 36px; font-weight: 800; color: var(--primary-color); line-height: 1; }
+        .stat-unit { font-size: 14px; color: var(--text-muted); font-weight: bold; }
+        .world-map { position: relative; max-width: 1000px; margin: 0 auto; }
+        .pin { position: absolute; background: var(--secondary-color); color: white; padding: 3px 8px; font-size: 11px; border-radius: 3px; font-weight: bold; transform: translate(-50%, -50%); white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        /* Pin Positions */
+        .japan { top: 38%; left: 81%; }
+        .hongkong { top: 46%; left: 77%; }
+        .thailand { top: 54%; left: 73%; }
+        .vietnam { top: 52%; left: 76%; }
+        .singapore { top: 62%; left: 74%; }
+        .philippines { top: 52%; left: 80%; }
+        .korea { top: 37%; left: 78%; }
+        .australia { top: 78%; left: 83%; }
+        .europe { top: 30%; left: 48%; }
+        .usa { top: 40%; left: 20%; }
+        .south-america { top: 75%; left: 32%; }
+        .africa { top: 78%; left: 54%; }
+
+        /* Representative Message Area */
+        .message-container { display: flex; align-items: flex-start; gap: 50px; }
+        .message-photos { display: flex; gap: 20px; flex-shrink: 0; }
+        .photo-item { text-align: center; }
+        .photo-frame { width: 180px; height: 240px; overflow: hidden; border-radius: 8px; border: 2px solid var(--secondary-color); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .photo-item .name { margin-top: 10px; font-size: 14px; font-weight: bold; color: var(--primary-color); }
         .message-text { flex: 1; }
-        .message-text blockquote { font-style: italic; font-size: 24px; color: var(--primary-color); border-left: none; padding: 0; margin-bottom: 20px; }
+        .position { color: #777; font-size: 14px; margin-bottom: 10px; }
 
-        footer { background: #0a192f; color: #8892b0; padding: 60px 50px; text-align: center; }
-        .footer-logo { font-size: 24px; color: #fff; margin-bottom: 20px; }
-
-        .message-box{
-display:flex;
-gap:40px;
-align-items:center;
-}
-
-.message-photo img{
-width:220px;
-border-radius:10px;
-}
-
-.position{
-color:#777;
-font-size:14px;
-margin-bottom:10px;
-}
-
-        @media(max-width:768px){
-
-.message-box{
-flex-direction:column;
-text-align:center;
-}
-
-}
-        /* ===== スマホ最適化 ===== */
-
-@media (max-width:768px){
-
-header{
-padding:12px 16px;
-}
-
-.logo{
-font-size:22px;
-}
-
-.hero{
-padding:80px 20px;
-}
-
-.hero h1{
-font-size:clamp(26px,6vw,48px);
-}
-
-.hero p{
-font-size:16px;
-}
-
-.section{
-padding:60px 20px;
-}
-
-.section-title h2{
-font-size:24px;
-}
-
-.btn{
-font-size:16px;
-padding:14px 28px;
-}
-
-/* 2カラム→縦 */
-
-.ipo-grid{
-grid-template-columns:1fr;
-}
-
-.network-grid{
-grid-template-columns:1fr;
-}
-
-.firm-grid{
-grid-template-columns:1fr;
-}
-
-/* 代表メッセージ */
-
-.message-box{
-flex-direction:column;
-text-align:center;
-}
-
-/* 地図 */
-
-.world-map img{
-width:100%;
-}
-
-}
-        .world-map{
-position:relative;
-max-width:900px;
-margin:60px auto;
-}
-
-.world-map img{
-width:100%;
-}
-
-.pin{
-
-position:absolute;
-background:#D4AF37;
-color:white;
-padding:4px 8px;
-font-size:12px;
-border-radius:4px;
-font-weight:bold;
-transform:translate(-50%,-50%);
-
-}
-
-/* 拠点位置 */
-
-.japan{top:38%; left:79%;}
-.thailand{top:52%; left:71%;}
-.vietnam{top:50%; left:74%;}
-.singapore{top:57%; left:72%;}
-.hongkong{top:45%; left:76%;}
+        @media (max-width: 768px) {
+            header { padding: 12px 16px; }
+            .logo { font-size: 22px; }
+            nav a { margin-left: 15px; font-size: 12px; }
+            .hero h1 { font-size: 32px; }
+            .section { padding: 60px 20px; }
+            .ipo-grid { grid-template-columns: 1fr; }
+            .message-container { flex-direction: column; align-items: center; }
+            .photo-frame { width: 140px; height: 186px; }
+            .south-america, .africa { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -183,10 +104,11 @@ transform:translate(-50%,-50%);
 <header>
     <a href="#" class="logo">GA<span>AN</span></a>
     <nav>
+        <a href="#message">Message</a>
         <a href="#ipo">IPO支援</a>
-        <a href="#network">グローバル拠点</a>
-        <a href="#message">代表メッセージ</a>
-        <a href="#contact">お問い合わせ</a>
+        <a href="#organization">Leadership</a>
+        <a href="#network">Global Presence</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
@@ -194,6 +116,40 @@ transform:translate(-50%,-50%);
     <h1>Taxを超え、Assuranceの領域へ。</h1>
     <p>世界各地の会計士・税務士・会社秘書役が、GAANの統一品質で貴社のガバナンスを保証します。上場準備（IPO）法人のグローバル管理をワンストップで完結。</p>
     <a href="#contact" class="btn">コンサルティングを依頼する</a>
+</section>
+
+<section id="message" class="section">
+    <div class="message-container">
+        <div class="message-photos">
+            <div class="photo-item">
+                <div class="photo-frame">
+                    <img src="ceo3.jpg" alt="横藤田 憲一">
+                </div>
+                <p class="name">横藤田 憲一</p>
+            </div>
+            <div class="photo-item">
+                <div class="photo-frame">
+                    <img src="aikawa3.jpg" alt="相川 聡志">
+                </div>
+                <p class="name">相川 聡志</p>
+            </div>
+        </div>
+
+        <div class="message-text">
+            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                <h2 style="text-align: left; padding-bottom: 10px; margin-left: 0;">代表メッセージ</h2>
+            </div>
+            <p class="position">Founder & Managing Partners</p>
+            <blockquote style="font-size: 24px; font-weight: bold; color: var(--primary-color); margin: 20px 0; border-left: 4px solid var(--secondary-color); padding-left: 20px; font-style: normal;">
+                「経営者の隣に、世界を。」
+            </blockquote>
+            <p style="text-align: justify;">
+                日本企業が海外展開を進める中で、多くの経営者が直面するのが「海外子会社の管理」という見えないリスクです。<br><br>
+                会計基準、税務制度、ガバナンス、コンプライアンス。それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。<br><br>
+                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。GAANは、その課題を解決するために生まれました。私たちは単なる提携ネットワークではありません。経営者の皆様が安心して世界に挑戦できるよう、私たちは常にその隣で伴走し続けます。
+            </p>
+        </div>
+    </div>
 </section>
 
 <section id="ipo" class="section">
@@ -224,127 +180,7 @@ transform:translate(-50%,-50%);
     </div>
 </section>
 
-<section class="section" style="background: #f9f9f9;">
-    <div class="section-title">
-        <h2>Global Presence</h2>
-        <p>世界をつなぐ会計・税務プロフェッショナルネットワーク</p>
-    </div>
-
-    <div class="network-stats">
-        <div class="stat-item">
-            <span class="stat-num">17</span>
-            <span class="stat-unit">国内会計事務所</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num">22</span>
-            <span class="stat-unit">海外提携拠点</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num">70</span>
-            <span class="stat-unit">名以上の士業専門家</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num">6,800</span>
-            <span class="stat-unit">以上の支援顧客数</span>
-        </div>
-    </div>
-
-    <div class="world-map">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="GAAN Global Network">
-
-        <div class="pin japan">Japan</div>
-        <div class="pin hongkong">Hong Kong / China</div>
-        <div class="pin thailand">Thailand / Myanmar</div>
-        <div class="pin vietnam">Vietnam / Cambodia</div>
-        <div class="pin singapore">Singapore / Indonesia</div>
-        <div class="pin philippines">Philippines</div>
-        <div class="pin korea">Korea</div>
-        <div class="pin australia">Australia</div>
-
-        <div class="pin europe">UK / Germany / France / Italy / Luxembourg / Ireland</div>
-
-        <div class="pin usa">USA</div>
-
-        <div class="pin south-america">Argentina / Brazil</div>
-        <div class="pin africa">South Africa</div>
-    </div>
-
-    <p style="text-align: center; font-size: 13px; color: #777; margin-top: 20px;">
-        ※国内17事務所、海外22拠点の士業ネットワークにより、グローバル全域をカバーしています。
-    </p>
-</section>
-
-<style>
-    /* 実績数値のスタイル */
-    .network-stats {
-        display: flex;
-        justify-content: space-around;
-        max-width: 900px;
-        margin: 0 auto 40px;
-        text-align: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .stat-item {
-        flex: 1;
-        min-width: 150px;
-    }
-    .stat-num {
-        display: block;
-        font-size: 36px;
-        font-weight: 800;
-        color: var(--primary-color);
-        line-height: 1;
-    }
-    .stat-unit {
-        font-size: 14px;
-        color: var(--text-muted);
-        font-weight: bold;
-    }
-
-    /* 地図とピンの座標設定 */
-    .world-map {
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    .pin {
-        position: absolute;
-        background: var(--secondary-color);
-        color: white;
-        padding: 3px 8px;
-        font-size: 11px;
-        border-radius: 3px;
-        font-weight: bold;
-        transform: translate(-50%, -50%);
-        white-space: nowrap;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    /* 座標調整（世界地図上の位置） */
-    .japan { top: 38%; left: 81%; }
-    .hongkong { top: 46%; left: 77%; }
-    .thailand { top: 54%; left: 73%; }
-    .vietnam { top: 52%; left: 76%; }
-    .singapore { top: 62%; left: 74%; }
-    .philippines { top: 52%; left: 80%; }
-    .korea { top: 37%; left: 78%; }
-    .australia { top: 78%; left: 83%; }
-    
-    .europe { top: 30%; left: 48%; }
-    .usa { top: 40%; left: 20%; }
-    .south-america { top: 75%; left: 32%; }
-    .africa { top: 78%; left: 54%; }
-
-    /* スマホ表示での調整 */
-    @media (max-width: 768px) {
-        .stat-num { font-size: 28px; }
-        .pin { font-size: 9px; padding: 2px 5px; }
-        /* スマホでは文字が重なるため一部非表示にするか調整 */
-        .south-america, .africa { display: none; } 
-    }
-</style>
-     <section id="organization" class="section" style="background: #fff;">
+<section id="organization" class="section">
     <div class="section-title">
         <h2>Organization & Leadership</h2>
         <p>一般社団法人 GTA グローバルタックス協会との強固な連携によるグローバルガバナンスの実現</p>
@@ -421,7 +257,6 @@ transform:translate(-50%,-50%);
 
     <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); display: inline-block; margin-bottom: 30px;">Advisory Board</h3>
     <div class="network-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
-        
         <div class="node-card" style="background: var(--accent-light); display: flex; flex-direction: column;">
             <span class="node-tag">主席顧問 / 税理士・教授</span>
             <h3>望月 文夫 <small style="font-size: 13px;">Fumio Mochizuki</small></h3>
@@ -434,7 +269,7 @@ transform:translate(-50%,-50%);
                     <li>GAANが提供するコンサルティングの理論的裏付けを強化</li>
                 </ul>
                 <p style="font-weight: bold; color: var(--primary-color);">【役割】</p>
-                <p>学術的知見の提供、最新理論の監修。実務と学術の架け橋を担う。</p>
+                <p>学術的知見の提供、最新理論の監修。</p>
             </div>
         </div>
 
@@ -450,108 +285,51 @@ transform:translate(-50%,-50%);
                     <li>実体経済に即した海外進出戦略のメンターとして参画</li>
                 </ul>
                 <p style="font-weight: bold; color: var(--primary-color);">【役割】</p>
-                <p>経営者視点での戦略助言。事業拡大におけるリスクとチャンスを共有。</p>
+                <p>経営者視点での戦略助言。</p>
             </div>
         </div>
     </div>
 </section>
 
+<section id="network" class="section" style="background: #f9f9f9;">
+    <div class="section-title">
+        <h2>Global Presence</h2>
+        <p>世界をつなぐ会計・税務プロフェッショナルネットワーク</p>
     </div>
-</section>
-    </div>
-</section>
-        
-<section id="message" class="section">
-    <div class="message-container">
-        
-        <div class="message-photos">
-            <div class="photo-item">
-                <div class="photo-frame">
-                    <img src="ceo3.jpg" alt="横藤田　憲一">
-                </div>
-                <p class="name">横藤田　憲一</p>
-            </div>
-            <div class="photo-item">
-                <div class="photo-frame">
-                    <img src="aikawa3.jpg" alt="相川 聡志">
-                </div>
-                <p class="name">相川 聡志</p>
-            </div>
-        </div>
 
-        <div class="message-text">
-            <div class="section-title" style="text-align: left; margin-bottom: 20px;">
-                <h2 style="text-align: left; padding-bottom: 10px; margin-left: 0;">代表メッセージ</h2>
-            </div>
-            <p class="position">Founder & Managing Partners</p>
-            <blockquote style="font-size: 24px; font-weight: bold; color: var(--primary-color); margin: 20px 0; border-left: 4px solid var(--secondary-color); padding-left: 20px; font-style: normal;">
-                「経営者の隣に、世界を。」
-            </blockquote>
-            <p style="text-align: justify;">
-                日本企業が海外展開を進める中で、多くの経営者が直面するのが「海外子会社の管理」という見えないリスクです。<br><br>
-                会計基準、税務制度、ガバナンス、コンプライアンス。それぞれの国でルールが異なる中、本社がすべてを把握することは決して簡単ではありません。<br><br>
-                しかし、IPO（上場）準備や企業成長の過程では、海外拠点の透明性と統制が厳しく問われます。GAANは、その課題を解決するために生まれました。私たちは単なる提携ネットワークではありません。経営者の皆様が安心して世界に挑戦できるよう、私たちは常にその隣で伴走し続けます。
-            </p>
+    <div class="network-stats">
+        <div class="stat-item">
+            <span class="stat-num">17</span>
+            <span class="stat-unit">国内会計事務所</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">22</span>
+            <span class="stat-unit">海外提携拠点</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">70</span>
+            <span class="stat-unit">名以上の士業専門家</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">6,800</span>
+            <span class="stat-unit">以上の支援顧客数</span>
         </div>
     </div>
+
+    <div class="world-map">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="GAAN Global Network">
+        <div class="pin japan">Japan</div>
+        <div class="pin hongkong">Hong Kong / China</div>
+        <div class="pin thailand">Thailand / Myanmar</div>
+        <div class="pin vietnam">Vietnam / Cambodia</div>
+        <div class="pin singapore">Singapore / Indonesia</div>
+        <div class="pin philippines">Philippines</div>
+        <div class="pin korea">Korea</div>
+        <div class="pin australia">Australia</div>
+        <div class="pin europe">UK / Germany / France</div>
+        <div class="pin usa">USA</div>
+    </div>
 </section>
-
-<style>
-    .message-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 50px;
-    }
-
-    .message-photos {
-        display: flex;
-        gap: 20px;
-        flex-shrink: 0;
-    }
-
-    .photo-item {
-        text-align: center;
-    }
-
-    /* 写真の枠：ここでサイズを固定します */
-    .photo-frame {
-        width: 180px;  /* 横幅を固定 */
-        height: 240px; /* 高さを固定（証明写真に近い比率） */
-        overflow: hidden; /* 枠からはみ出た部分を隠す */
-        border-radius: 8px;
-        border: 2px solid var(--secondary-color);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .photo-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 重要：枠いっぱいに広げ、比率を維持して中央でトリミング */
-        object-position: center top; /* 顔が上の方にあることを想定 */
-    }
-
-    .photo-item .name {
-        margin-top: 10px;
-        font-size: 14px;
-        font-weight: bold;
-        color: var(--primary-color);
-    }
-
-    .message-text {
-        flex: 1;
-    }
-
-    @media (max-width: 768px) {
-        .message-container {
-            flex-direction: column;
-            align-items: center;
-        }
-        .photo-frame {
-            width: 140px; /* スマホでは少し小さく */
-            height: 186px;
-        }
-    }
-</style>
 
 <section id="contact" class="section" style="text-align: center; background: var(--primary-color); color: #fff;">
     <h2 style="color: #fff;">グローバルガバナンスの診断・ご相談</h2>
