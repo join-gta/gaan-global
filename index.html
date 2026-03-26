@@ -224,80 +224,126 @@ transform:translate(-50%,-50%);
     </div>
 </section>
 
-<section id="network" class="section" style="background: #fdfdfd;">
+<section class="section" style="background: #f9f9f9;">
     <div class="section-title">
-        <h2>Global Strategic Network</h2>
-        <p>「提携先」ではなく、実務を完結させる「GAANメンバーファーム」</p>
+        <h2>Global Presence</h2>
+        <p>世界をつなぐ会計・税務プロフェッショナルネットワーク</p>
     </div>
-    <div class="network-grid">
-        <div class="node-card">
-            <span class="node-tag">Japan Hub</span>
-            <h3>日本（東京・名古屋・大阪）</h3>
-            <ul>
-                <li>ネットワーク全体のPMO（プロジェクト管理）</li>
-                <li>日本本社側の連結納税・IPOコンサルティング</li>
-            </ul>
+
+    <div class="network-stats">
+        <div class="stat-item">
+            <span class="stat-num">17</span>
+            <span class="stat-unit">国内会計事務所</span>
         </div>
-        <div class="node-card">
-            <span class="node-tag">Southeast Asia</span>
-            <h3>タイ（バンコク）</h3>
-            <ul>
-                <li>BOI（投資委員会）申請・恩典活用</li>
-                <li>製造業向け会計監査・VAT還付実務</li>
-            </ul>
+        <div class="stat-item">
+            <span class="stat-num">22</span>
+            <span class="stat-unit">海外提携拠点</span>
         </div>
-        <div class="node-card">
-            <span class="node-tag">Southeast Asia</span>
-            <h3>ベトナム（ホーチミン・ハノイ）</h3>
-            <ul>
-                <li>外資規制調査・法人設立支援</li>
-                <li>労働許可証取得・現地法定監査</li>
-            </ul>
+        <div class="stat-item">
+            <span class="stat-num">70</span>
+            <span class="stat-unit">名以上の士業専門家</span>
         </div>
-        <div class="node-card">
-            <span class="node-tag">East Asia</span>
-            <h3>中国（上海・香港）</h3>
-            <ul>
-                <li>連結決算パッケージ作成支援</li>
-                <li>外貨送金規制対応・移転価格文書化</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Regional Hub</span>
-            <h3>シンガポール</h3>
-            <ul>
-                <li>アジア統括会社の設立・税務スキーム構築</li>
-                <li>高度なアシュアランス業務</li>
-            </ul>
-        </div>
-        <div class="node-card">
-            <span class="node-tag">Global Partners</span>
-            <h3>インドネシア・フィリピン 他</h3>
-            <ul>
-                <li>現地の会社秘書役（Corp.Sec）業務</li>
-                <li>税務調査対応・ライセンス維持管理</li>
-            </ul>
+        <div class="stat-item">
+            <span class="stat-num">6,800</span>
+            <span class="stat-unit">以上の支援顧客数</span>
         </div>
     </div>
+
+    <div class="world-map">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="GAAN Global Network">
+
+        <div class="pin japan">Japan</div>
+        <div class="pin hongkong">Hong Kong / China</div>
+        <div class="pin thailand">Thailand / Myanmar</div>
+        <div class="pin vietnam">Vietnam / Cambodia</div>
+        <div class="pin singapore">Singapore / Indonesia</div>
+        <div class="pin philippines">Philippines</div>
+        <div class="pin korea">Korea</div>
+        <div class="pin australia">Australia</div>
+
+        <div class="pin europe">UK / Germany / France / Italy / Luxembourg / Ireland</div>
+
+        <div class="pin usa">USA</div>
+
+        <div class="pin south-america">Argentina / Brazil</div>
+        <div class="pin africa">South Africa</div>
+    </div>
+
+    <p style="text-align: center; font-size: 13px; color: #777; margin-top: 20px;">
+        ※国内17事務所、海外22拠点の士業ネットワークにより、グローバル全域をカバーしています。
+    </p>
 </section>
-    <section class="section">
 
-<div class="section-title">
-<h2>Global Presence</h2>
-<p>GAANメンバーファームの主要拠点</p>
-</div>
+<style>
+    /* 実績数値のスタイル */
+    .network-stats {
+        display: flex;
+        justify-content: space-around;
+        max-width: 900px;
+        margin: 0 auto 40px;
+        text-align: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .stat-item {
+        flex: 1;
+        min-width: 150px;
+    }
+    .stat-num {
+        display: block;
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--primary-color);
+        line-height: 1;
+    }
+    .stat-unit {
+        font-size: 14px;
+        color: var(--text-muted);
+        font-weight: bold;
+    }
 
-<div class="world-map">
+    /* 地図とピンの座標設定 */
+    .world-map {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .pin {
+        position: absolute;
+        background: var(--secondary-color);
+        color: white;
+        padding: 3px 8px;
+        font-size: 11px;
+        border-radius: 3px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
+    /* 座標調整（世界地図上の位置） */
+    .japan { top: 38%; left: 81%; }
+    .hongkong { top: 46%; left: 77%; }
+    .thailand { top: 54%; left: 73%; }
+    .vietnam { top: 52%; left: 76%; }
+    .singapore { top: 62%; left: 74%; }
+    .philippines { top: 52%; left: 80%; }
+    .korea { top: 37%; left: 78%; }
+    .australia { top: 78%; left: 83%; }
+    
+    .europe { top: 30%; left: 48%; }
+    .usa { top: 40%; left: 20%; }
+    .south-america { top: 75%; left: 32%; }
+    .africa { top: 78%; left: 54%; }
 
-<div class="pin japan">Tokyo</div>
-<div class="pin thailand">Bangkok</div>
-<div class="pin vietnam">Ho Chi Minh</div>
-<div class="pin singapore">Singapore</div>
-<div class="pin hongkong">Hong Kong</div>
-
-</div>
+    /* スマホ表示での調整 */
+    @media (max-width: 768px) {
+        .stat-num { font-size: 28px; }
+        .pin { font-size: 9px; padding: 2px 5px; }
+        /* スマホでは文字が重なるため一部非表示にするか調整 */
+        .south-america, .africa { display: none; } 
+    }
+</style>
 <section id="organization" class="section" style="background: #fff;">
     <div class="section-title">
         <h2>Organization & Leadership</h2>
